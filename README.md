@@ -13,5 +13,5 @@
   
   Buzzer: Buzzer Active, https://components101.com/misc/buzzer-pinout-working-datasheet
 
-Montage:
+Montagem:
 ![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/blob/main/API_PIR_HCSR501/montagem.png?raw=true)
