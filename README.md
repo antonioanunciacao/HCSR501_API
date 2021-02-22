@@ -19,16 +19,16 @@ In this project you will need to configure three ports:
 - Output port for Buzzer PWM signal.
 - Output port for Green LED output on the board (pre-configured).
 
-![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/API_PIR_HCSR501 Example/main/API_PIR_HCSR501/imagens/GPIOPORT.PNG?raw=true)
+![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/Example/main/API_PIR_HCSR501/imagens/GPIOPORT.PNG?raw=true)
 
 
 #### Pinout Layout:
 
-![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/API_PIR_HCSR501 Example/main/API_PIR_HCSR501/imagens/pinout.PNG?raw=true)
+![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/Example/main/API_PIR_HCSR501/imagens/pinout.PNG?raw=true)
 
 #### Setting Clock Configuration(ABP1):
 
-![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/API_PIR_HCSR501 Example/main/API_PIR_HCSR501/imagens/CLOCK_TREE.PNG?raw=true)
+![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/Example/main/API_PIR_HCSR501/imagens/CLOCK_TREE.PNG?raw=true)
 
 ---
 #### Operation:
@@ -60,4 +60,4 @@ Buzzer Activation:
 ---
 ### Circuit Assembly:
 
-![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/API_PIR_HCSR501 Example/main/API_PIR_HCSR501/imagens/montagem.png?raw=true)
+![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/Example/main/API_PIR_HCSR501/imagens/montagem.png?raw=true)
