@@ -6,11 +6,9 @@
 
   In this work, an API was developed to use the presence sensor. The purpose is to trigger an alarm if you check the signal coming from the motion sensor.
   
-  Microcontroler: Nucleo STMG474RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
-  
-  Sensor: HC-SR501 PIR, https://www.epitran.it/ebayDrive/datasheet/44.pdf
-  
-  Buzzer: Buzzer Active, https://components101.com/misc/buzzer-pinout-working-datasheet
+  - Microcontroler: Nucleo STMG474RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
+  - Sensor: HC-SR501 PIR, https://www.epitran.it/ebayDrive/datasheet/44.pdf
+  - Buzzer: Buzzer Active, https://components101.com/misc/buzzer-pinout-working-datasheet
 
 
 #### Setting Nucleo-G474RE:
@@ -18,10 +16,8 @@
 In this project you will need to configure three ports:
 
 - Input port for the SR501 sensor signal.
-
 - Output port for Buzzer PWM signal.
-
--  Output port for Green LED output on the board (pre-configured).
+- Output port for Green LED output on the board (pre-configured).
 
 ![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/blob/main/API_PIR_HCSR501/imagens/GPIOPORT.PNG?raw=true)
 
