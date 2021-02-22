@@ -57,11 +57,11 @@ static void MX_TIM1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void turnOffBuzzer(void){
-	htim1.Instance->CCR1 = 0;
+	TIM1->CCR1 = 0; // 0% duty cycle
 }
 
 void turnOnBuzzer(void){
-	htim1.Instance->CCR1 = 80;
+	TIM1->CCR1 = 80; //80% duty cycle
 }
 /* USER CODE END 0 */
 
