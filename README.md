@@ -1,57 +1,57 @@
-## Projeto de Programacao de Sistemas Embarcados
-### API para o sensor de presença HCSR501
-#### Nome: Antonio Carlos da Anunciação
-#### Nome: Guilherme Henrique de Almeida Leles
+## Embedded Systems Programming - UFMG
+### API PIR sensor HCSR501
+#### - Antonio Carlos da Anunciação
+#### - Guilherme Henrique de Almeida Leles
 ---
 
-  Neste trabalho foi construida uma API para uso do sensor de presença. O objetivo é, dada uma detecção de sinal no sensor de movimento o dispositivo gera uma saida, neste caso a saida escolhida foi um alarme sonoro.
+  In this work, an API was developed to use the presence sensor. The purpose is to trigger an alarm if you check the signal coming from the motion sensor.
   
-  Microcontrolador: Nucleo STMG474RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
+  Microcontroler: Nucleo STMG474RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
   
   Sensor: HC-SR501 PIR, https://www.epitran.it/ebayDrive/datasheet/44.pdf
   
   Buzzer: Buzzer Active, https://components101.com/misc/buzzer-pinout-working-datasheet
 
 
-#### Configurando o Nucleo-G474RE:
+#### Setting Nucleo-G474RE:
 
-Neste projeto vai ser preciso configurar três portas:
+In this project you will need to configure three ports:
 
-- Porta de entrada para o sinal do sensor SR501.
+- Input port for the SR501 sensor signal.
 
-- Porta de saída para sinal PWM do Buzzer.
+- Output port for Buzzer PWM signal.
 
-- Porta de saída LED Luninoso verde da placa (pré-configurada).
+-  Output port for Green LED output on the board (pre-configured).
 
 ![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/blob/main/API_PIR_HCSR501/imagens/GPIOPORT.PNG?raw=true)
 
 
-#### Layout da pinagem:
+#### Pinout Layout:
 
 ![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/blob/main/API_PIR_HCSR501/imagens/pinout.PNG?raw=true)
 
-#### Configuração do clock no TIMMER1(ABP1):
+#### Setting Clock Configuration(ABP1):
 
 ![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/blob/main/API_PIR_HCSR501/imagens/CLOCK_TREE.PNG?raw=true)
 
 ---
-#### Funcionamento:
+#### Operation:
 
-O microcontrolador fica no loop principal detectando se existe uma leitura no PIN_1, enquanto houver sinal ele alterna entre ligar e desligar o buzzer.
+The microcontroller is in the main loop detecting if there is a reading on PIN_1, while there is a signal it alternates between turning the buzzer on and off.
 
     while (1) {
       if( HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) ) {
 
         turnOnBuzzer();
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0); //led verde da placa
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0); //turn on Green LED on the board
         while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1));
         turnOffBuzzer();
 
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1); //led verde da placa
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1); //turn off //Green LED on the board
         }
     }
 
-Acionamento do Buzzer:
+Buzzer Activation:
 
     void turnOffBuzzer(void) {
       TIM1->CCR1 = 0; // 0% duty cycle
@@ -62,6 +62,6 @@ Acionamento do Buzzer:
     }
 
 ---
-### Montagem do circuito:
+### Circuit Assembly:
 
 ![alt text](https://github.com/antonioanunciacao/Programa-o-de-Sistemas-Embarcados/blob/main/API_PIR_HCSR501/imagens/montagem.png?raw=true)
