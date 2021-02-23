@@ -1,17 +1,34 @@
-## Embedded Systems Programming - UFMG
-### API PIR sensor HCSR501
-#### - Antonio Carlos da Anunciação
-#### - Guilherme Henrique de Almeida Leles
+# API PIR sensor HCSR501
+##### -Developed by: Antonio Carlos da Anunciação, Guilherme Henrique de Almeida Leles
 ---
+## Introduction
 
-  In this work, an API was developed to use the presence sensor. The purpose is to trigger an alarm if you check the signal coming from the motion sensor.
+  This API was developed as a project of the discipline of Embedded Systems Programming at UFMG - Prof. Ricardo de Oliveira Duarte - Department of Electronic Engineering
+
+  The Library is developed and tested with Stm32F401RE (Nucleo 64 board)
   
-  - Microcontroler: Nucleo STMG474RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
+  - Microcontroler: Nucleo STMF401RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
   - Sensor: HC-SR501 PIR, https://www.epitran.it/ebayDrive/datasheet/44.pdf
-  - Buzzer: Buzzer Active, https://components101.com/misc/buzzer-pinout-working-datasheet
 
 
-#### Setting Nucleo-G474RE:
+### Quick Start
+
+```c
+#include "HC-SR501_API.h"
+```
+```c
+Init_API(GPIOA, GPIO_PIN_1);
+```
+
+
+## API functions:
+
+### Wait_To_Use()
+ Return if sensor is read to use.
+ The device requires nearly a minute to initialize.
+ ### Init_API(GPIO_Port port, GPIO_Pin pin)
+  This function receives the GPIO used by the sensor and initializes the API
+#### Setting Nucleo-F401RE:
 
 In this project you will need to configure three ports:
 
