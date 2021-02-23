@@ -44,6 +44,7 @@ GPIO_Pin hc_pin;
     // To do
     HAL_Delay(1000);
   }
+  
 /*
  * This function receives the GPIO used by the sensor
  */
