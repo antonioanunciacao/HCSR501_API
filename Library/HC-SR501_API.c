@@ -56,7 +56,7 @@ GPIO_Pin hc_pin;
 
 /*
  * This function gets the value read by the sensor.
- * Return if is moving or not
+ * Return if is motion was detected
 */
  bool Return_Motion_Detected(){
    bool state = HAL_GPIO_ReadPin(hc_port,hc_pin);
