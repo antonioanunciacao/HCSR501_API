@@ -46,7 +46,7 @@ GPIO_Pin hc_pin;
   }
   
 /*
- * This function receives the GPIO used by the sensor
+ * This function receives the GPIO used by the sensor and initializes the API
  */
  void Init_API(GPIO_Port port, GPIO_Pin pin){
    hc_port = port;
