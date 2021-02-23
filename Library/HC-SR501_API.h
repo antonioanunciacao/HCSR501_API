@@ -3,7 +3,8 @@
  * Copyright (C) 2020 Antonio Carlos da Anunciação <antonioanunciacao@gmail.com>
  * Copyright (C) 2020 Guilherme Henrique de Almeida Leles <guilhermehaleles@hotmail.com>
  * Version 1.0 - API with the following implemented functions:
-
+ * void Init_API(GPIO_Port port, GPIO_Pin pin); 
+ * bool Return_Motion_Detected();
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,10 +32,16 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32g4xx_hal.h"
+#include "stm32f4xx_hal.h"
+#include "stdbool.h"
 
 /************************************** HC typedefs **************************************/
-#define HC_PortType GPIO_TypeDef*
-#define HC_PinType uint16_t
+typedef GPIO_TypeDef* GPIO_Port;
+typedef uint16_t GPIO_Pin;
+
+/************************************** Public functions **************************************/
+void Init_API(GPIO_Port port, GPIO_Pin pin);
+bool Return_Motion_Detected();
+bool Wait_To_Use();
 
 #endif /* HC-SR501_API_H */
