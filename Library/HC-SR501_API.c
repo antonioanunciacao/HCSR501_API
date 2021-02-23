@@ -3,8 +3,9 @@
  * Copyright (C) 2020 Antonio Carlos da Anunciação <antonioanunciacao@gmail.com>
  * Copyright (C) 2020 Guilherme Henrique de Almeida Leles <guilhermehaleles@hotmail.com>
  * Version 1.0 - API with the following implemented functions:
-
- *
+ * void Init_API(GPIO_Port port, GPIO_Pin pin); 
+ * bool Return_Motion_Detected();
+ * void Wait_To_Use();
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -40,8 +41,7 @@ GPIO_Pin hc_pin;
  * Return if sensor is read to use
  * The device requires nearly a minute to initialize.
 */
-  void Wait_To_Use(){
-    // To do
+  void Wait_To_Use(void){
     HAL_Delay(1000);
   }
   
@@ -59,5 +59,7 @@ GPIO_Pin hc_pin;
  * Return if is moving or not
 */
  bool Return_Motion_Detected(){
-   return HAL_GPIO_ReadPin(port,pin);
+   bool state = HAL_GPIO_ReadPin(hc_port,hc_pin);
+
+   return state;
  }

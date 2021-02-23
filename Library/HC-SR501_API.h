@@ -1,10 +1,11 @@
 /*
- * HC-SR501_API.c
+ * HC-SR501_API.h
  * Copyright (C) 2020 Antonio Carlos da Anunciação <antonioanunciacao@gmail.com>
  * Copyright (C) 2020 Guilherme Henrique de Almeida Leles <guilhermehaleles@hotmail.com>
  * Version 1.0 - API with the following implemented functions:
  * void Init_API(GPIO_Port port, GPIO_Pin pin); 
  * bool Return_Motion_Detected();
+ * void Wait_To_Use();
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,6 +43,6 @@ typedef uint16_t GPIO_Pin;
 /************************************** Public functions **************************************/
 void Init_API(GPIO_Port port, GPIO_Pin pin);
 bool Return_Motion_Detected();
-bool Wait_To_Use();
+void Wait_To_Use();
 
 #endif /* HC-SR501_API_H */
