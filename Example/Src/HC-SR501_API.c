@@ -58,5 +58,7 @@ GPIO_Pin hc_pin;
  * Return if is moving or not
 */
  bool Return_Motion_Detected(){
-   return HAL_GPIO_ReadPin(hc_port,hc_pin);
+   bool state = HAL_GPIO_ReadPin(hc_port,hc_pin);
+
+   return state;
  }

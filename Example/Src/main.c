@@ -90,28 +90,26 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  Init_API(GPIOA, GPIO_PIN_1);
+  Init_API(GPIOA, GPIO_PIN_0);
   /* USER CODE END 2 */
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-  HAL_Delay(500);
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
 
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
-	  if(Return_Motion_Detected()){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0); //turn on Green LED on the board
+
+	  if( Return_Motion_Detected()){
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1); //turn on Green LED on the board
+		  HAL_Delay(500);
+		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0); //turn off Green LED on the board
 		  HAL_Delay(500);
 	  }
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1); //turn off Green LED on the board
-
 
   }
   /* USER CODE END 3 */
 }
+
 
 /**
   * @brief System Clock Configuration
@@ -214,11 +212,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PIR_SENSOR_IN_Pin */
-  GPIO_InitStruct.Pin = PIR_SENSOR_IN_Pin;
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(PIR_SENSOR_IN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LD2_Pin */
   GPIO_InitStruct.Pin = LD2_Pin;
