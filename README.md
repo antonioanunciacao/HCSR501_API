@@ -24,7 +24,6 @@ Init_API(GPIOA, GPIO_PIN_1);
 ## API functions:
 
 ### Wait_To_Use()
- Return if sensor is read to use.
  The device requires nearly a minute to initialize.
  ### Init_API(GPIO_Port port, GPIO_Pin pin)
   This function receives the GPIO used by the sensor and initializes the API
