@@ -90,8 +90,12 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  Init_API(GPIOA, GPIO_PIN_0);
+  Init_API(GPIOA, GPIO_PIN_1);
   /* USER CODE END 2 */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1); //turn on Green LED on the board
+  HAL_Delay(500);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0); //turn off Green LED on the board
+  HAL_Delay(500);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -109,7 +113,6 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
-
 
 /**
   * @brief System Clock Configuration
@@ -212,8 +215,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA0 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  /*Configure GPIO pin : PA1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
