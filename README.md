@@ -32,3 +32,22 @@ Init_API(GPIOA, GPIO_PIN_1);
  This function gets the value read by the sensor.
  Return if the motion was detected.
 
+
+### Pinout STM32G474-Nucleo:
+
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/pinout.PNG?raw=true)
+
+
+### Clock Configuration to use of Buzzer:
+- Frequency target ~250Hz
+- Output Frequency 64MHz:
+    prescalar= 64MHz/(255*255) = 985
+- Prescalar 958, Duty Cycle [0,255]
+
+### Clock Tree:
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/clock_tree_output_~250hz.PNG?raw=true)
+### Timer2 Configuration:
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/timer2_configuration_~250hz.PNG?raw=true)
+### Circuit Assembly:
+
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/assembly.jpg?raw=true)
