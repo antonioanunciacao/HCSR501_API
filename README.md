@@ -5,32 +5,31 @@
 
   This API was developed as a project of the discipline of Embedded Systems Programming at UFMG - Prof. Ricardo de Oliveira Duarte - Department of Electronic Engineering
 
-  The Library is developed and tested with Stm32F401RE (Nucleo 64 board)
+  The Library is developed and tested with Stm32F401RE (Nucleo 64 board) with HAL library functions.
   
   - Microcontroler: Nucleo STMF401RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
   - Sensor: HC-SR501 PIR, https://www.epitran.it/ebayDrive/datasheet/44.pdf
 
 
-#### Quick Start
-
-```c
-#include "HC-SR501_API.h"
-```
-```c
-Init_API(GPIOA, GPIO_PIN_1);
-```
-
-
 ## API functions:
 
-### Wait_To_Use()
- The device requires nearly a minute to initialize.
- ### Init_API(GPIO_Port port, GPIO_Pin pin)
-  This function receives the GPIO used by the sensor and initializes the API
+ ###  Init_HC_API(GPIOA,GPIO_PIN_1, SINGLE)
+ This function receives the GPIO used by the sensor and the trigger type to initializes the API
 
-### Return_Motion_Detected()
- This function gets the value read by the sensor.
- Return if the motion was detected.
+### bool Ready_To_Use(void)
+ This function return if sensor is ready to use after starting the api .
+ The device requires nearly a minute to initialize.
+ Return: True if the sensor is ready to use.
+     	   False if the sensor is not ready to use.
+
+### State Get_State()
+ This function get the current state of the sensor.
+ Return: State (INITIALIZING, TIME_DELAY, DETECTION_BLOCKED, NO_MOTION, UNDEFINED)  *
+
+### Void Output_Event()
+ The input pin must be configured for External Interrupt Mode with
+ Rising/Falling edge trigger detection, and in its interrupt call this function.
+ This function set the blocked_time paramenter on HCSR501 output event, and that will be used in other functions.
 
 
 ### Pinout STM32G474-Nucleo:
