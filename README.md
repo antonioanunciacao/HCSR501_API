@@ -5,7 +5,7 @@
 
   This API was developed as a project of the discipline of Embedded Systems Programming at UFMG - Prof. Ricardo de Oliveira Duarte - Department of Electronic Engineering
 
-  The Library is developed and tested with Stm32F401RE (Nucleo 64 board) with HAL library functions.
+  The Library is developed and tested with STM32F401RE (Nucleo 64 board) with HAL library functions.
   
   - Microcontroler: Nucleo STMF401RE, https://www.st.com/resource/en/user_manual/dm00556337-stm32g4-nucleo-64-boards-mb1367-stmicroelectronics.pdf
   - Sensor: HC-SR501 PIR, https://www.epitran.it/ebayDrive/datasheet/44.pdf
@@ -29,24 +29,16 @@
 ### Void Output_Event()
  The input pin must be configured for External Interrupt Mode with
  Rising/Falling edge trigger detection, and in its interrupt call this function.
- This function set the blocked_time paramenter on HCSR501 output event, and that will be used in other functions.
+ This function set the blocked_time parameter in the output event of HC SR501 , and that will be used in other functions..
+
+## Example
+### Pinout STM32F401RE:
+
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/pin_configuration.PNG?raw=true)
 
 
-### Pinout STM32G474-Nucleo:
-
-![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/pinout.PNG?raw=true)
-
-
-### Clock Configuration to use of Buzzer:
-- Frequency target ~250Hz
-- Output Frequency 64MHz:
-    prescalar= 64MHz/(255*255) = 985
-- Prescalar 958, Duty Cycle [0,255]
-
-### Clock Tree:
-![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/clock_tree_output_~250hz.PNG?raw=true)
-### Timer2 Configuration:
-![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/timer2_configuration_~250hz.PNG?raw=true)
+### Timer1 Configuration:
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/timer.PNG?raw=true)
 ### Circuit Assembly:
 
-![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/assembly.jpg?raw=true)
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/assembly_.jpeg?raw=true)
