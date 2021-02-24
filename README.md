@@ -41,4 +41,4 @@
 ![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/timer.PNG?raw=true)
 ### Circuit Assembly:
 
-![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/assembly_.jpeg?raw=true=100x20)
+![alt text](https://github.com/antonioanunciacao/HCSR501_API/blob/main/others/assembly_.jpeg?raw=true)
