@@ -1,10 +1,11 @@
 /*
- * HC-SR501_API.c
- * Copyright (C) 2020 Antonio Carlos da AnunciaÃ§Ã£o <antonioanunciacao@gmail.com>
+ * HC-SR501_API.h
+ * Copyright (C) 2020 Antonio Carlos da Anunciação <antonioanunciacao@gmail.com>
  * Copyright (C) 2020 Guilherme Henrique de Almeida Leles <guilhermehaleles@hotmail.com>
  * Version 1.0 - API with the following implemented functions:
- * void Init_API(GPIO_Port port, GPIO_Pin pin); 
+ * void Init_API(GPIO_Port port, GPIO_Pin pin);
  * bool Return_Motion_Detected();
+ * void Wait_To_Use();
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,8 +28,8 @@
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef HC-SR501_API_H_
-#define HC-SR501_API_H_
+#ifndef HC-SR501_API_H
+#define HC-SR501_API_H
 
 
 /* Includes ------------------------------------------------------------------*/
@@ -39,9 +40,31 @@
 typedef GPIO_TypeDef* GPIO_Port;
 typedef uint16_t GPIO_Pin;
 
+typedef enum {
+	INITIALIZING,
+	TIME_DELAY,
+	DETECTION_BLOCKED,
+	NO_MOTION,
+	UNDEFINED
+} State;
+
+typedef enum {
+	SINGLE,
+	REPEATABLE
+} Trigger ;
+
+typedef struct {
+	State state;
+	Trigger trigger;
+	bool output;
+} HCSensor;
+
 /************************************** Public functions **************************************/
-void Init_API(GPIO_Port port, GPIO_Pin pin);
+void Init_HC_API(GPIO_Port port, GPIO_Pin pin, Trigger trigger);
 bool Return_Motion_Detected();
-void Wait_To_Use();
+void Motion_Detected();
+void Output_Event();
+State Get_State();
+bool Ready_To_Use();
 
 #endif /* HC-SR501_API_H */
