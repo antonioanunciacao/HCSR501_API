@@ -1,12 +1,18 @@
 /*
  * HC-SR501_API.c
- * Copyright (C) 2020 Antonio Carlos da Anunciação <antonioanunciacao@gmail.com>
+ * Copyright (C) 2020 Antonio Carlos da Anunciaï¿½ï¿½o <antonioanunciacao@gmail.com>
  * Copyright (C) 2020 Guilherme Henrique de Almeida Leles <guilhermehaleles@hotmail.com>
+ *
  * Version 1.0 - API with the following implemented functions:
  * void Init_HC_API(GPIO_Port port, GPIO_Pin pin, Trigger trigger);
  * void Output_Event();
  * State Get_State();
  * bool Ready_To_Use();
+ *
+ * This API was developed as a work of the Embedded Systems Programming
+ * discipline from UFMG - Prof. Ricardo de Oliveira Duarte - Department
+ * of Electronic Engineering.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -23,8 +29,7 @@
  * Created on: 22 de feb de 2021
  * Institution: UFMG
  *
- * This API contains functions to read and deal with data from the
- * HC-SR501 PIR.
+ * This API contains functions to deal with the HC-SR501 PIR.
  */
 
 /* USER CODE END Header */
