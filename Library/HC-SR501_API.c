@@ -36,13 +36,33 @@
 GPIO_Port hc_port;
 GPIO_Pin hc_pin;
 
+uint32_t startup_time = 0;
+
 
  /*
  * Return if sensor is read to use
  * The device requires nearly a minute to initialize.
 */
-  void Wait_To_Use(void){
-    HAL_Delay(1000);
+  bool ready_to_use(void){
+    if((startup_time - HAL_GetTick()) == 1000){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+   /*
+ * Return if sensor is read to use
+ * The device requires nearly a minute to initialize.
+*/
+  bool ready_to_use(void){
+    if((startup_time - HAL_GetTick()) == 1000){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
   
 /*
@@ -50,8 +70,9 @@ GPIO_Pin hc_pin;
  */
  void Init_API(GPIO_Port port, GPIO_Pin pin){
    hc_port = port;
-   hc_pin = pin; 
-   Wait_To_Use();
+   hc_pin = pin;
+   startup_time = HAL_GetTick();
+  /*  Wait_To_Use();*/
  }
 
 /*
@@ -59,7 +80,15 @@ GPIO_Pin hc_pin;
  * Return if is motion was detected
 */
  bool Return_Motion_Detected(){
-   bool state = HAL_GPIO_ReadPin(hc_port,hc_pin);
+   
+   bool state = false;
+
+   if(ready_to_use()){
+
+    state = HAL_GPIO_ReadPin(hc_port,hc_pin);
+   
+   }
+   
 
    return state;
  }
