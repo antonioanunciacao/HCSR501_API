@@ -63,7 +63,7 @@ Drivers/STM32F4xx_HAL_Driver/Src/%.o: ../Drivers/STM32F4xx_HAL_Driver/Src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Compiler'
 	@echo $(PWD)
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F401xE -I"C:/Users/guilherme.leles/Documents/GitHub/STM/TimerTest/Inc" -I"C:/Users/guilherme.leles/Documents/GitHub/STM/TimerTest/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/guilherme.leles/Documents/GitHub/STM/TimerTest/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/guilherme.leles/Documents/GitHub/STM/TimerTest/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/guilherme.leles/Documents/GitHub/STM/TimerTest/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F401xE -I"C:/Users/guilherme.leles/Documents/UFMG/GitHub/Programa-o-de-Sistemas-Embarcados/Example/Inc" -I"C:/Users/guilherme.leles/Documents/UFMG/GitHub/Programa-o-de-Sistemas-Embarcados/Example/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/guilherme.leles/Documents/UFMG/GitHub/Programa-o-de-Sistemas-Embarcados/Example/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/guilherme.leles/Documents/UFMG/GitHub/Programa-o-de-Sistemas-Embarcados/Example/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/guilherme.leles/Documents/UFMG/GitHub/Programa-o-de-Sistemas-Embarcados/Example/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

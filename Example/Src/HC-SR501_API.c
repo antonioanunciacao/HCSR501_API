@@ -1,19 +1,12 @@
 /*
  * HC-SR501_API.c
- *
- *  Created on: 23 de fev de 2021
- *      Author: guilherme.leles
- */
-
-
-/*
- * HC-SR501_API.c
  * Copyright (C) 2020 Antonio Carlos da Anunciação <antonioanunciacao@gmail.com>
  * Copyright (C) 2020 Guilherme Henrique de Almeida Leles <guilhermehaleles@hotmail.com>
  * Version 1.0 - API with the following implemented functions:
- * void Init_API(GPIO_Port port, GPIO_Pin pin);
- * bool Return_Motion_Detected();
- * void Wait_To_Use();
+ * void Init_HC_API(GPIO_Port port, GPIO_Pin pin, Trigger trigger);
+ * void Output_Event();
+ * State Get_State();
+ * bool Ready_To_Use();
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -52,13 +45,15 @@ HCSensor hc_sensor;
 
 
 /*
- * Return if sensor is read to use
+ * This function return if sensor is read to use.
  * The device requires nearly a minute to initialize.
+ * Return: True if the sensor is ready to use
+ * 		   False if the sensor is not ready to use
 */
   bool Ready_To_Use(void)
   {
 
-    if( (HAL_GetTick() - startup_time) > 6000)
+    if( (HAL_GetTick() - startup_time) > 60000)
     {
   		return true;
     }
@@ -68,6 +63,9 @@ HCSensor hc_sensor;
 
 /*
  * This function receives the GPIO used by the sensor and the trigger type to initializes the API
+ * port: GPIOX
+ * pin: GPIO_PIN_X
+ * Triger: SINGLE, REPEATABLE
  */
  void Init_HC_API(GPIO_Port port, GPIO_Pin pin, Trigger trigger)
  {
@@ -82,11 +80,13 @@ HCSensor hc_sensor;
    startup_time = HAL_GetTick();
  }
 
-/*
- * This function gets the value read by the sensor.
- * Return if is motion was detected
-*/
 
+/*
+ * The input pin of the stm must be configured for External Interrupt Mode with
+ * Rising/Falling edge trigger detection, and in its interrupt call this function.
+ * This function set the blocked_time paramenter, that will be used in other functions
+ *
+*/
 
  void Output_Event()
  {
@@ -114,6 +114,11 @@ HCSensor hc_sensor;
  }
 
 
+ /*
+  * This function get the current state of the sensor.
+  * Return: State (INITIALIZING, TIME_DELAY, DETECTION_BLOCKED, NO_MOTION, UNDEFINED)  *
+  */
+
  State Get_State()
  {
 	 if(Ready_To_Use())
@@ -124,6 +129,10 @@ HCSensor hc_sensor;
 	 return hc_sensor.state;
 
  }
+
+ /*
+  * This function set the current state to NO_MOTION if necessary.
+  */
 
  void Set_State()
  {
